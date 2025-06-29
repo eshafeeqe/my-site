@@ -2,3 +2,71 @@ baseURL = 'https://my-site-c8h.pages.dev/'
 languageCode = 'en-us'
 title = 'eshafeeqe'
 theme = 'PaperMod'
+
+# Prevent posts from showing on homepage
+mainSections = []
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+[params]
+# Theme features
+ShowReadingTime = true
+ShowShareButtons = true
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowWordCount = true
+ShowRssButtonInSectionTermList = true
+UseHugoToc = true
+disableSpecial1stPost = false
+disableScrollToTop = false
+comments = false
+hidemeta = false
+hideSummary = false
+showtoc = false
+tocopen = false
+
+
+# Disable profile mode to allow custom homepage layout
+[params.profileMode]
+enabled = false
+
+# Social icons
+[[params.socialIcons]]
+name = "email"
+url = "mailto:hi@yourwebsite.com"
+
+[[params.socialIcons]]
+name = "twitter"
+url = "https://twitter.com/yourusername"
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://linkedin.com/in/yourusername"
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/yourusername"
+
+# Menu
+[menu]
+[[menu.main]]
+identifier = "blog"
+name = "Blog"
+url = "/posts/"
+weight = 10
+
+[[menu.main]]
+identifier = "books"
+name = "Books"
+url = "/books/"
+weight = 20
+
+[[menu.main]]
+identifier = "events"
+name = "Events"
+url = "/events/"
+weight = 30
