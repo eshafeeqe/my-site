@@ -16,7 +16,7 @@ title: "eshafeeqe"
     <p>I enjoy learning about fun technical challenges and collaborating with great teams. <a href="/contact">Reach out</a> if you want to find a way to work together!</p>
   </div>
   <div style="text-align: center;">
-    <img src="/images/dp.png" alt="Profile Picture" style="width: 300px; height: 300px; border-radius: 50%; object-fit: cover;">
+    <img src="/images/dp.jpg" alt="Profile Picture" style="width: 300px; height: 300px; border-radius: 50%; object-fit: cover;">
   </div>
 </div>
 
