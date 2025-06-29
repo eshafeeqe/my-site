@@ -1,0 +1,95 @@
+/* Basic Body & Font Styling */
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Classic serif font like the example */
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #fdfdfd;
+}
+
+.container, .site-header, .site-footer {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header/Nav Styling */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+.site-title a {
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.site-header nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* THE TWO-COLUMN LAYOUT MAGIC */
+.main-content {
+    display: flex; /* This is the key! It enables the flexbox layout. */
+    align-items: flex-start; /* Aligns items to the top */
+    gap: 40px; /* Creates space between the columns */
+}
+
+.text-column {
+    flex: 2; /* Makes the text column take up 2/3 of the space */
+}
+
+.image-column {
+    flex: 1; /* Makes the image column take up 1/3 of the space */
+}
+
+/* THE CIRCULAR IMAGE MAGIC */
+.image-column img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* This makes the image a perfect circle */
+    max-width: 250px; /* Optional: limit the max size of the image */
+}
+
+/* Footer Styling */
+.site-footer {
+    border-top: 1px solid #eee;
+    margin-top: 60px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.footer-content {
+    display: flex;
+    gap: 40px;
+}
+
+.social-links-column {
+    flex: 1;
+}
+
+.newsletter-column {
+    flex: 2;
+}
+
+.social-links-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.social-links-column a {
+    text-decoration: none;
+    color: #555;
+}
+
+a {
+    color: #007bff; /* A nice blue for links */
+}

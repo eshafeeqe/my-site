@@ -1,0 +1,33 @@
+/* File: static/css/custom.css */
+
+/* THE TWO-COLUMN LAYOUT MAGIC for the homepage */
+.main-content-home {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    /* Re-add some padding that the default theme might remove */
+    padding: 20px 0;
+}
+
+.text-column-home {
+    flex: 2;
+}
+
+.image-column-home {
+    flex: 1;
+}
+
+/* THE CIRCULAR IMAGE MAGIC */
+.image-column-home img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    max-width: 250px;
+}
+
+/* Handle layout on smaller screens */
+@media (max-width: 768px) {
+    .main-content-home {
+        flex-direction: column-reverse; /* Stack image on top of text */
+    }
+}
