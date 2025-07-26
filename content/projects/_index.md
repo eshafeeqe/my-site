@@ -1,9 +1,9 @@
 ---
-title: "Research and Publications"
-description: "My research focuses on the intersection of computer vision, robotics, and machine learning. I specialize in developing and deploying robust algorithms for 3D reconstruction, state estimation, and reinforcement learning. My work spans from foundational academic research to building production-ready ML systems. Below are highlights of my projects, publications, and contributions to the field."
+title: "Projects and Publications"
+description: "My career focuses on the intersection of computer vision, robotics, and machine learning. I specialize in developing and deploying robust algorithms for 3D reconstruction, state estimation, and reinforcement learning. My work spans from foundational academic research to building production-ready ML systems. Below are highlights of my projects, publications to the field."
 ---
 
-## Featured Research Projects
+## Featured Projects
 
 Here are some of the key projects I've worked on. Each project represents a deep dive into solving complex technical challenges.
 

@@ -59,14 +59,9 @@ name = "Blog"
 url = "/posts/"
 weight = 10
 
-[[menu.main]]
-identifier = "experience"
-name = "Experience"
-url = "/experience/"
-weight = 20
 
 [[menu.main]]
-identifier = "research"
-name = "Research"
-url = "/research/"
+identifier = "projects"
+name = "Projects"
+url = "/projects/"
 weight = 30
