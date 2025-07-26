@@ -60,13 +60,13 @@ url = "/posts/"
 weight = 10
 
 [[menu.main]]
-identifier = "books"
-name = "Books"
-url = "/books/"
+identifier = "experience"
+name = "Experience"
+url = "/experience/"
 weight = 20
 
 [[menu.main]]
-identifier = "events"
-name = "Events"
-url = "/events/"
+identifier = "research"
+name = "Research"
+url = "/research/"
 weight = 30

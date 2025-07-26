@@ -5,9 +5,7 @@ title: "eshafeeqe"
 {{< rawhtml >}}
 <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; margin: 2rem 0;">
 <div>
-<p>I'm <strong>Shafeeq Elanattil</strong>, a Senior Software Engineer specializing in Computer Vision, Robotics, and Machine Learning.</p>
-    
-   <p>My focus is on the end-to-end ML project lifecycle, from research and prototyping to C++ deployment. I have extensive experience building and deploying monocular SLAM systems, developing Reinforcement Learning controllers for robotics, and researching non-rigid 3D reconstruction.</p>
+<p>I'm <strong>Shafeeq Elanattil</strong>, a Product Oriented Engineer with extnesive experience in Computer Vision, Robotics, and Machine Learning.</p>
 
   <p>I am currently a Senior Research Programmer at <strong>Broadcast Virtual</strong>. Previously, I've had the pleasure of working at <strong>Antikythera Robotics</strong> and <strong>CSIRO's Data61</strong>.</p>
 
