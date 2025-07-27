@@ -59,9 +59,14 @@ name = "Blog"
 url = "/posts/"
 weight = 10
 
-
 [[menu.main]]
 identifier = "projects"
 name = "Projects"
 url = "/projects/"
+weight = 20
+
+[[menu.main]]
+identifier = "research"
+name = "Research"
+url = "/research/"
 weight = 30
