@@ -123,7 +123,7 @@ layout: "single"
         <h3 class="publication-title">Non-rigid 3D Reconstruction of the Human Body in Motion</h3>
         <div class="publication-description">
         
-            <a href="https://eshafeeqe.github.io/homepage/dicta_website/"><img src="https://eshafeeqe.space/photo.png" alt="DICTA paper thumbnail" style="width: 200px; height: auto; float: left; margin-right: 1rem; margin-bottom: 1rem;"></a>
+            <a href="https://eprints.qut.edu.au/205095/1/Shafeeq_Elanattil_Thesis.pdf"><img src="https://r2.eshafeeqe.space/photo.png" alt="DICTA paper thumbnail" style="width: 200px; height: auto; float: left; margin-right: 1rem; margin-bottom: 1rem;"></a>
             <div class="publication-authors"><strong>Shafeeq Elanattil</strong></div>
             <div class="publication-venue">My PhD thesis at QUT and CSIRO Data61 introduced a novel method to decouple camera and object motion for high-accuracy 3D reconstruction. This work also included a skeleton-driven optimization framework to correct tracking failures for rapidly moving subjects.</div>
             <div style="margin-top: 1rem;">
