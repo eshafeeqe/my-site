@@ -7,12 +7,6 @@ description: "My career focuses on the intersection of computer vision, robotics
 
 Here are some of the key projects I've worked on. Each project represents a deep dive into solving complex technical challenges.
 
-### PhD Thesis: Non-rigid 3D Reconstruction of the Human Body in Motion
-My PhD thesis at QUT and CSIRO Data61 introduced a novel method to decouple camera and object motion for high-accuracy 3D reconstruction. This work also included a skeleton-driven optimization framework to correct tracking failures for rapidly moving subjects.
-
-*   **Tech Stack:** C++, CUDA, Python, TensorFlow, PyTorch, OpenCV, PCL
-*   **Links:** <a href="https://eprints.qut.edu.au/205095/1/Shafeeq_Elanattil_Thesis.pdf" target="_blank" rel="noopener noreferrer"><b> Thesis Link</b></a>
-
 ### Reinforcement Learning for Quadruped Robotics
 At Antikythera Robotics, I developed and simulated Reinforcement Learning (RL) controllers for walking, self-righting, and balancing on a quadruped robot. This project involved architecting a real-time state estimation framework using an Extended Kalman Filter (EKF) to fuse data from 12 actuators, 2 IMUs, and a stereo camera.
 

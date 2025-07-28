@@ -118,6 +118,19 @@ layout: "single"
 
 <div class="research-section">
     <h2 class="section-title">Publications</h2>
+    <h3 style="margin-bottom: 1rem; color: #666;">Thesis</h3>
+    <div class="publication-card">
+        <h3 class="publication-title">Non-rigid 3D Reconstruction of the Human Body in Motion</h3>
+        <div class="publication-description">
+        
+            <a href="https://eshafeeqe.github.io/homepage/dicta_website/"><img src="https://eshafeeqe.space/photo.png" alt="DICTA paper thumbnail" style="width: 200px; height: auto; float: left; margin-right: 1rem; margin-bottom: 1rem;"></a>
+            <div class="publication-authors"><strong>Shafeeq Elanattil</strong></div>
+            <div class="publication-venue">My PhD thesis at QUT and CSIRO Data61 introduced a novel method to decouple camera and object motion for high-accuracy 3D reconstruction. This work also included a skeleton-driven optimization framework to correct tracking failures for rapidly moving subjects.</div>
+            <div style="margin-top: 1rem;">
+            [<a href="https://eprints.qut.edu.au/205095/1/Shafeeq_Elanattil_Thesis.pdf" target="_blank"><strong>Thesis</strong></a>][<a href=" https://1drv.ms/p/c/da461ad674a72697/EQU60yIIbvZOl4Z7HqzmbXgBDcahFSutHdajZp4uBtNmWQ?e=fS8Qhd&nav=eyJzSWQiOjQ0MSwiY0lkIjozNTM5NDMzNDM3fQ" target="_blank"><strong>PPT</strong></a>]
+            </div>
+        </div>
+    </div>
     <h3 style="margin-bottom: 1rem; color: #666;">Conferences</h3>
 
     <div class="publication-card">
@@ -127,9 +140,9 @@ layout: "single"
             <div class="publication-authors"><strong>Shafeeq Elanattil</strong>, Peyman Moghadam, Simon Denman, Sridha Sridharan, Clinton Fookes.</div>
             <div class="publication-venue">Digital Image Computing: Techniques and Applications (DICTA) 2018.</div>
             <div style="margin-top: 1rem;">
-                [<a href="https://eshafeeqe.github.io/homepage/dicta_website/" target="_blank"><strong>project page</strong></a>]
+                [<a href="https://eshafeeqe.github.io/homepage/dicta_website/" target="_blank"><strong>Project Page</strong></a>]
                 [<a href="https://arxiv.org/pdf/1810.03774.pdf" target="_blank"><strong>PDF</strong></a>]
-                [<a href="https://eshafeeqe.github.io/homepage/dicta_website/DICTA_Poster.pdf" target="_blank"><strong>poster</strong></a>]
+                [<a href="https://eshafeeqe.github.io/homepage/dicta_website/DICTA_Poster.pdf" target="_blank"><strong>Poster</strong></a>]
             </div>
         </div>
     </div>
