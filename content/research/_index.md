@@ -1,6 +1,8 @@
 ---
 title: "Research"
 layout: "single"
+hideMeta: true
+ShowBreadCrumbs: false
 ---
 
 {{< rawhtml >}}
