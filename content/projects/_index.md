@@ -17,3 +17,10 @@ As a Research Programmer at Broadcast Virtual, I developed and deployed a monocu
 
 *   **Tech Stack:** C++, Python, PyTorch, TensorRT, CUDA, MLflow, Docker, Kubernetes
 *   **[See the project details »](/projects/monocular-slam-broadcast/)** 
+
+### Tennis Video Analysis Platform
+
+This project involves the development and deployment of a production-ready tennis video analysis platform that automatically extracts rallies, classifies shots, and provides AI-driven coaching feedback. The system uses audio signal processing to detect ball impact sounds for rally segmentation and applies computer vision models for pose estimation and shot classification, distinguishing forehand, backhand, and serve actions. The platform is designed with a distributed worker architecture, where isolated processing nodes communicate with the main server through HTTP APIs, enabling secure and scalable video processing. An integrated Google Gemini–based coaching system analyzes gameplay and generates contextual YouTube tutorial recommendations linked to specific technique issues identified in the footage.
+
+*   **Tech Stack:**: Python, FastAPI, Next.js, PostgreSQL, RabbitMQ, Celery, Docker, MoveNet, OpenVINO, Librosa, FFmpeg, Google Gemini 2.5
+*   **[See the project details »](/projects/tennis-video-analysis/)** 
