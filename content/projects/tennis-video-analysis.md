@@ -1,20 +1,95 @@
 ---
-title: "Tennis Video Analysis"
+title: "Generative AI Tennis Coach"
 hideMeta: true
 draft: false
 hiddenInList: true
 ---
 
-The platform combines machine learning and audio processing to analyze tennis gameplay videos. It is built on a FastAPI backend with a Next.js frontend and uses PostgreSQL for persistent storage. Distributed task processing is handled through RabbitMQ and Celery. The entire system runs in Docker Compose, with multiple containerized services and Cloudflare R2 for video storage. Users upload videos through the web interface, and processing occurs asynchronously across worker nodes that extract rallies, classify shots, generate highlights, and produce AI-based coaching feedback.
+The **Generative AI Tennis Coach** is an intelligent tennis-analysis platform that unifies **machine learning**, **audio-visual understanding**, and **retrieval-augmented generation (RAG)** to deliver **personalized coaching feedback** grounded in real match footage.
 
-The system uses a security-isolated architecture where the video processing worker operates in a separate container without direct database access. Communication between the worker and the backend occurs through authenticated HTTP API endpoints using internal API keys. This design supports deploying workers on independent infrastructure while maintaining security and scalability. RabbitMQ serves as the message broker, decoupling video uploads from processing tasks and enabling asynchronous execution. When a user uploads a video, the frontend enqueues a task in Celery, which is picked up by worker nodes that process the video and report progress through dedicated API endpoints.
+Built on a **FastAPI + Next.js** stack, the platform runs fully containerized via **Docker Compose**, coordinating asynchronous processing through **RabbitMQ + Celery** workers.  
+Video assets are stored in **Cloudflare R2**, while structured metadata, feedback, and vector embeddings reside in **PostgreSQL with pgvector** for efficient retrieval and contextual reasoning.
 
+---
 
-The processing pipeline is organized into sequential stages. Rally detection applies audio frequency analysis to identify ball impact sounds and groups them into rally segments based on timing. Shot classification uses pose estimation to extract player movement data from video frames, which are then analyzed by a neural network to classify each shot. The system cross-validates vision-based detections with audio-based hits to reduce false positives. Rally generation applies a quality filter, including only segments with multiple validated shots, before compiling the final rally videos. The highlight generator produces several clip types, such as forehand and backhand collections, longest rallies by hit count, and fastest rallies by hit density, each limited to a short duration for review.
+## System Overview
 
-The platform integrates Google Gemini 2.5 to provide contextual tennis coaching. During processing, analyzed videos are uploaded to Gemini’s Files API. The system uses two structured prompts: one for strategic analysis, covering rally structure, positioning, and movement efficiency, and another for technical analysis, focusing on shot mechanics such as grip, stance, and footwork. Gemini returns structured JSON feedback with timestamped observations, which is stored in the database. When users interact with the chat service, this feedback is included in the system prompt, allowing Gemini to provide specific advice referencing moments from the user’s own footage.
+### 1. Video Upload & Task Queue
 
-A YouTube recommendation component enhances the coaching feedback by linking technique issues to tutorial videos. The system converts identified technical problems into search queries, such as mapping grip-related issues to “tennis grip fix.” It applies a dual recommendation strategy: short “Quick Fix” videos for immediate improvement and longer “Deep Dive” tutorials for more detailed learning. Recommendations are preloaded and cached to optimize API usage. Each video suggestion is validated for duration and deduplicated across multiple searches to ensure relevance and variety. These recommendations are integrated into the AI chat responses, with cached results serving as a fallback if real-time queries fail.
+Players upload tennis videos through the web interface.  
+The backend queues processing tasks in **Celery**, which are executed by isolated worker containers.  
+Each worker communicates securely via authenticated API endpoints—enabling **horizontal scaling** and **strict data separation** between inference and user data.
+
+---
+
+### 2. AI-Driven Video Analysis Pipeline
+
+- **Rally Detection:** Audio-frequency analysis detects ball-impact sounds and groups them into rallies.  
+- **Shot Classification:** Pose-estimation and neural-network models classify strokes (*forehand*, *backhand*, *serve*).  
+- **Cross-Validation:** Combines audio and visual cues to reduce false positives.  
+- **Highlight Compilation:** Generates categorized rally clips and short highlight reels.
+
+---
+
+### 3. Generative AI Coaching Engine
+
+Processed clips are sent to **Google Gemini 2.5**, which produces **structured, timestamped JSON feedback** on tactics, positioning, and technique.  
+Each observation is embedded into a **vector database** (pgvector), building a **temporal knowledge base** aligned with the analyzed footage.
+
+---
+
+### 4. Retrieval-Augmented Conversation
+
+When users interact with the in-app AI chat, their queries are **semantically matched** against the stored embeddings.  
+Relevant coaching insights—complete with timestamps and context—are injected into Gemini’s prompt, allowing the model to respond with **highly specific, grounded feedback** linked to moments from the user’s own footage.
+
+---
+
+### 5. YouTube Recommendation Layer
+
+The AI agent transforms coaching insights into contextual search queries (e.g., *“improve open-stance forehand”*) and retrieves:
+
+- **Quick Fix** videos — short, actionable clips for immediate improvement  
+- **Deep Dive** tutorials — long-form breakdowns for technical learning  
+
+Results are validated, cached, and merged with AI chat responses for a **multi-modal learning experience** that blends analysis, explanation, and guided improvement.
+
+---
+
+## Architecture Diagrams
+
+### Main Node
+<img 
+  src="https://r2.eshafeeqe.space/works/es/diagrams/main.png" 
+  alt="Example image" 
+  width="100%" 
+  style="max-height: 400px; object-fit: contain;" 
+/>
+
+### Worker Node
+
+<img 
+  src="https://r2.eshafeeqe.space/works/es/diagrams/worker.png" 
+  alt="Example image" 
+  width="100%" 
+  style="max-height: 400px; object-fit: contain;" 
+/>
+
+### AI Chat FLow
+<img 
+  src="https://r2.eshafeeqe.space/works/es/diagrams/chat%20flow.png" 
+  alt="Example image" 
+  width="100%" 
+  style="max-height: 400px; object-fit: contain;" 
+/>
+
+Notes:
+- Main node = single host running both Next.js (frontend) and FastAPI (backend).
+- Workers are security-isolated; they never touch the DB directly and report only via authenticated FastAPI APIs.
+- Direct-to-R2 upload minimizes main node bandwidth; workers pull from R2 for processing.
+- RAG happens at chat time on the main node using pgvector; Gemini is used both post-processing (to create feedback)
+  and at chat-time (to generate grounded replies).
+
 
 ## Demo videos and images
 
