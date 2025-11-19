@@ -5,56 +5,45 @@ draft: false
 hiddenInList: true
 ---
 
-The **Generative AI Tennis Coach** is an intelligent tennis-analysis platform that unifies **machine learning**, **audio-visual understanding**, and **retrieval-augmented generation (RAG)** to deliver **personalized coaching feedback** grounded in real match footage.
+The **Generative AI Tennis Coach** is an intelligent sports-analysis system that unifies **machine learning**, **multimodal understanding**, and **retrieval-augmented generation (RAG)** to deliver **personalized, evidence-grounded coaching feedback** derived directly from match footage.
 
-Built on a **FastAPI + Next.js** stack, the platform runs fully containerized via **Docker Compose**, coordinating asynchronous processing through **RabbitMQ + Celery** workers.  
-Video assets are stored in **Cloudflare R2**, while structured metadata, feedback, and vector embeddings reside in **PostgreSQL with pgvector** for efficient retrieval and contextual reasoning.
+At its core, the platform implements a **Generative AI orchestration layer** built on **Google Vertex AI** and a **PostgreSQL + pgvector** knowledge base.
+Every processed rally, pose sequence, and shot-classification embedding becomes part of a **temporal semantic graph**, enabling the model to retrieve contextually relevant insights when users chat with the AI coach.
+Video analysis tasks run as **serverless Celery workers on GCP Cloud Run Jobs**, allowing elastic scaling and full isolation between inference and user data.
+
+Built on a **FastAPI + Next.js** stack and containerized via **Docker Compose**, the system coordinates asynchronous job execution through **RabbitMQ + Celery**.
+All video assets are persisted in **Cloudflare R2**, while structured metadata and vector embeddings reside in **PostgreSQL/pgvector**, supporting efficient semantic search and contextual reasoning across modalities.
 
 ---
 
 ## System Overview
 
-### 1. Video Upload & Task Queue
+### 1. Video Upload & Task Orchestration
 
-Players upload tennis videos through the web interface.  
-The backend queues processing tasks in **Celery**, which are executed by isolated worker containers.  
-Each worker communicates securely via authenticated API endpoints—enabling **horizontal scaling** and **strict data separation** between inference and user data.
-
----
+Players upload videos through the web interface.
+The backend queues Celery tasks that are executed as **Cloud Run Jobs**, each operating in an isolated container with authenticated APIs—enabling **horizontal scaling**, **fault isolation**, and **cost-efficient parallelism**.
 
 ### 2. AI-Driven Video Analysis Pipeline
 
-- **Rally Detection:** Audio-frequency analysis detects ball-impact sounds and groups them into rallies.  
-- **Shot Classification:** Pose-estimation and neural-network models classify strokes (*forehand*, *backhand*, *serve*).  
-- **Cross-Validation:** Combines audio and visual cues to reduce false positives.  
-- **Highlight Compilation:** Generates categorized rally clips and short highlight reels.
-
----
+* **Rally Detection:** Audio-frequency analysis of ball-impact sounds groups frames into rallies.
+* **Shot Classification:** Pose-estimation and neural models categorize strokes (*forehand*, *backhand*, *serve*).
+* **Cross-Validation:** Fuses audio and pose cues to reduce false positives.
+* **Highlight Compilation:** Produces timestamped clips and categorized highlight reels.
 
 ### 3. Generative AI Coaching Engine
 
-Processed clips are sent to **Google Gemini 2.5**, which produces **structured, timestamped JSON feedback** on tactics, positioning, and technique.  
-Each observation is embedded into a **vector database** (pgvector), building a **temporal knowledge base** aligned with the analyzed footage.
-
----
+Processed clips and analytics are sent to **Gemini 2.5 via Vertex AI**, which produces **structured, timestamped JSON feedback** on tactics, positioning, and biomechanics.
+These outputs are embedded into the **pgvector knowledge base**, forming a **long-term coaching memory** aligned with each player’s gameplay history.
 
 ### 4. Retrieval-Augmented Conversation
 
-When users interact with the in-app AI chat, their queries are **semantically matched** against the stored embeddings.  
-Relevant coaching insights—complete with timestamps and context—are injected into Gemini’s prompt, allowing the model to respond with **highly specific, grounded feedback** linked to moments from the user’s own footage.
-
----
+When users interact with the in-app AI chat, their queries are **semantically matched** against stored embeddings.
+Relevant feedback snippets—with timestamps and tactical context—are **injected into Gemini’s prompt**, enabling **grounded, explainable responses** tied to the player’s own footage.
 
 ### 5. YouTube Recommendation Layer
 
-The AI agent transforms coaching insights into contextual search queries (e.g., *“improve open-stance forehand”*) and retrieves:
+The AI agent reformulates insights into contextual search queries (e.g., *“improve open-stance forehand”*), retrieves **short-form drills** and **long-form tutorials**, validates and caches results, and merges them with chat responses—creating a **multi-modal learning experience** that blends **analysis, explanation, and guided improvement**.
 
-- **Quick Fix** videos — short, actionable clips for immediate improvement  
-- **Deep Dive** tutorials — long-form breakdowns for technical learning  
-
-Results are validated, cached, and merged with AI chat responses for a **multi-modal learning experience** that blends analysis, explanation, and guided improvement.
-
----
 
 ## Architecture Diagrams
 
