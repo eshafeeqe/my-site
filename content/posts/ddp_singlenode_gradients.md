@@ -3,7 +3,7 @@ title = "Understanding DDP: How Gradients are Synchronised Across GPUs?"
 date = 2025-01-15
 draft = false
 description = ""
-tags = ["introduction", "blog"]
+tags = ["LLM", "DDP"]
 categories = ["general"]
 math = true
 +++
