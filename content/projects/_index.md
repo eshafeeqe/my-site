@@ -6,6 +6,13 @@ hideMeta: true
 
 ## Featured Projects
 
+### [Automated Corrosion Inspection Analytics](/projects/corrosion-inspection-analytics)
+
+An applied machine-learning system for offshore industrial asset inspection, turning laser-scan and panoramic imagery into prioritised inspection points on 3D digital twins. The work spans a production corrosion-segmentation model selected through a training-data ablation, evaluation metrics tied to real inspection decisions rather than pixel scores, an automated pipeline that converts model output into reviewable defect locations on point-cloud data, and cloud-based Prefect/Ray workflows for data preparation, training and evaluation. It is built to reduce manual review effort and support a more automated inspection offering.
+
+*   **Tech Stack:**: Python, Prefect, Ray, GCP, MLflow, scikit-learn, point clouds and octrees, Docker
+*   **[See the project details »](/projects/corrosion-inspection-analytics)** 
+
 ### [Generative AI Tennis Coach](/projects/tennis-video-analysis/)
 
 This project involves the development and deployment of a production-ready tennis video analysis platform that automatically extracts rallies, classifies shots, and provides AI-driven coaching feedback. The system uses audio signal processing to detect ball impact sounds for rally segmentation and applies computer vision models for pose estimation and shot classification, distinguishing forehand, backhand, and serve actions. The platform is designed with a distributed worker architecture, where isolated processing nodes communicate with the main server through HTTP APIs, enabling secure and scalable video processing. An integrated Google Gemini–based coaching system analyzes gameplay and generates contextual YouTube tutorial recommendations linked to specific technique issues identified in the footage.
